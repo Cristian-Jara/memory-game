@@ -1,0 +1,19 @@
+/* Block: game-card */
+.game-card {
+  width: 10rem;
+  height: 15rem;
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+}
+
+/* Element: game-card image */
+.game-card__img {
+  width: 10rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
+/* Modifier: flipped (for the animation) */
+.game-card--flipped {
+  transform: rotateY(180deg); /* Rotate the card 180 degrees on the Y-axis */
+}
