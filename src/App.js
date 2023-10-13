@@ -1,45 +1,32 @@
 import { useMemo, useState } from 'react';
 import './App.css';
-import GameContext from './hooks/GameContext';
-import { getImages } from './services/images';
-import { getStoredUserName, initializeCards } from './utils/helpers';
+import { getStoredUserName } from './utils/helpers';
 import Home from './views/Home';
 import Layout from './components/Layout/Layout';
-import { initialGameState } from './utils/constants';
+import UserContext from './hooks/UserContext';
 
 function App() {
-  const [game, setGame] = useState({
-    userName: getStoredUserName() || '',
-    ...initialGameState,
-  });
-  const [cards, setCards] = useState([]);
+  const [userName, setUserName] = useState(
+    getStoredUserName() || '',
+  );
+  const [started, setStarted] = useState(false);
+  const [difficulty, setDifficulty] = useState(0);
 
-  console.log('game', game);
-
-  useMemo(() => {
-    getImages()
-    .then((response) => {
-      const images = response.data.entries;
-      setCards(initializeCards(images));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }, []);
-
-  const contextData = useMemo(() => ({
-    game,
-    setGame,
-    cards,
-    setCards,
-  }), [game, cards])
+  const value = useMemo(() => ({
+    userName,
+    setUserName,
+    started,
+    setStarted,
+    difficulty,
+    setDifficulty,
+  }), [userName, started, difficulty]);
 
   return (
-    <GameContext.Provider value={contextData}>
+    <UserContext.Provider value={value}>
       <Layout>
         <Home />
       </Layout>
-    </GameContext.Provider>
+    </UserContext.Provider>
   );
 }
 

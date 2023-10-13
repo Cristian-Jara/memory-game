@@ -2,11 +2,14 @@ import { useContext } from "react";
 import GameContext from "../../hooks/GameContext";
 
 function GameCounter() {
-  const { game } = useContext(GameContext);
+  const { attempts } = useContext(GameContext);
   return (
-    <div className="game-counter">
-      <p>Correct Attempts: {game.correctAttempts}</p>
-      <p>Incorrect Attempts: {game.incorrectAttempts}</p>
+    <div
+      data-testid="game-counter"
+      className="game-counter"
+    >
+      <p>Correct Attempts: {attempts.correct}</p>
+      <p>Incorrect Attempts: {attempts.incorrect}</p>
     </div>
   );
 }

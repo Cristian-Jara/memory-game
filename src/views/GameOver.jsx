@@ -1,12 +1,18 @@
+import { Button } from "react-bootstrap";
 import GameCounter from "../components/GameCounter/GameCounter";
+import { useContext } from "react";
+import UserContext from "../hooks/UserContext";
 
-function GameOver() {
+function GameOver({
+  handleResetGame,
+}) {
+  const { userName } = useContext(UserContext);
   return (
     <div>
-      <h1>Congrulations, you win!</h1>
+      <h1>Congratulations {userName}, you win!</h1>
       <p>Your score is:</p>
       <GameCounter />
-      <button>Play again</button>
+      <Button variant="primary" onClick={handleResetGame}>Play again</Button>
     </div>
   );
 }
