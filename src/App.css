@@ -1,3 +1,119 @@
+/* Block: header */
+.header {
+  background-color: #3498dbd1;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+/* Element: header__logo-container */
+.header__logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Element: header__logo */
+.header__brain-icon {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+/* Element: header__game-title */
+.header__game-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Element: header__user-info */
+.header__user-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Element: header__user-name */
+.header__user-name {
+  margin-right: 2rem;
+}
+
+/* Element: header__user-avatar */
+.header__back-to-menu-button {
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+/* Block: game-menu */
+.game-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45rem;
+}
+
+/* Element: game-menu__title */
+.game-menu__title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Element: game-menu__form */
+.game-menu__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  border-radius: 0.5rem;
+  border: .5px solid rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Element: game-menu__start_button */
+.game-menu__start-button {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Block: spinner-container */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+
+/* Block: game-counter-container */
+.game-counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Element: game-counter-container__text */
+.game-counter-container__text {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
 /* Block: game-card */
 .game-card {
   width: 10rem;
@@ -13,39 +129,67 @@
   object-fit: cover;
 }
 
-/* Modifier: flipped (for the animation) */
-.game-card--flipped {
-  transform: rotateY(180deg); /* Rotate the card 180 degrees on the Y-axis */
-}
-
-/* Block: card */
+/* Block: game-card-container */
 .game-card-container {
   width: 10rem;
   height: 15rem;
-  perspective: 1000px; /* Perspective for the 3D effect */
 }
 
 /* Block: game-card-inner */
 .game-card-inner {
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d; /* Preserve 3D transformations */
-  transition: transform 0.5s; /* Add a smooth transition effect */
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
 /* Modifier: flipped (for the animation) */
 .game-card-inner--flipped {
-  transform: rotateY(180deg); /* Rotate the card 180 degrees on the Y-axis */
+  transform: rotateY(180deg);
 }
 
-/* Element: game-card-front and game-card-back (faces of the card) */
+/* Element: game-card-front and game-card-back */
 .game-card-front, .game-card-back {
   width: 100%;
   height: 100%;
   position: absolute;
-  backface-visibility: hidden; /* Hide the back face of the card */
+  backface-visibility: hidden;
 }
 
+/* Element: game-card-back */
 .game-card-back {
-  transform: rotateY(180deg); /* Initially, hide the back face */
+  transform: rotateY(180deg);
+}
+
+/* Element: game-card-front__card */
+.game-card-front__card {
+  height: 15rem !important;
+}
+
+/* Element: game-card-front__button */
+.game-card-front__button {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Block: game-over-container */
+.game-over-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+}
+
+/* Element: game-over-container__play-again-button */
+.game-over-container__play-again-button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
 }

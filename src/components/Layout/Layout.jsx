@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 
 function Layout({ children }) {
   return (
-    <Container fluid>
+    <Container fluid className="p-0">
       <Header />
       {children}
     </Container>

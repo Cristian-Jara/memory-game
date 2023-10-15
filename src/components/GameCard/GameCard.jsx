@@ -8,17 +8,16 @@ function GameCard({ card, handleSelectCard, flipped, stopFlip }) {
         data-testid="game-card-inner"
       >
         <div className="game-card-front">
-          <Card>
-            <Card.Body>
-              <Button
-                data-testid="game-card-button"
-                className="game-card-front__button"
-                disabled={stopFlip}
-                onClick={() => handleSelectCard(card)}
-              >
-                Flip
-              </Button>
-            </Card.Body>
+          <Card className="game-card-front__card">
+            <Button
+              variant="outline-secondary"
+              data-testid="game-card-button"
+              className="game-card-front__button"
+              disabled={stopFlip}
+              onClick={() => handleSelectCard(card)}
+            >
+              Flip
+            </Button>
           </Card>
         </div>
         <div className="game-card-back">

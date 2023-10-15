@@ -49,7 +49,6 @@ function Game() {
       setAttempts((prev) => {
         const newAttempts = { ...prev };
         newAttempts[option] += 1;
-        console.log(newAttempts, peersCount);
         if (newAttempts.correct === peersCount) {
           setFinished(true);
         }

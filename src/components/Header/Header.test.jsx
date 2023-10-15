@@ -18,7 +18,7 @@ describe("Header Component", () => {
     );
 
     const headerTitle = screen.getByText("Memory Game");
-    const userNameHeader = screen.getByText("Hi TestUser!");
+    const userNameHeader = screen.getByText("TestUser");
     const backButton = screen.getByText("Back to Menu");
 
     expect(headerTitle).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("Header Component", () => {
     );
 
     const headerTitle = screen.getByText("Memory Game");
-    const userNameHeader = screen.queryByText("Hi TestUser!");
+    const userNameHeader = screen.queryByText("TestUser");
     const backButton = screen.queryByText("Back to Menu");
 
     expect(headerTitle).toBeInTheDocument();

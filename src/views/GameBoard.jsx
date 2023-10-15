@@ -23,23 +23,25 @@ function GameBoard() {
   };
 
   return (
-    <Container fluid data-testid="game-board">
+    <Container fluid data-testid="game-board" className="p-0">
       <GameCounter />
-      <Row>
-        {cards.map((card, index) => (
-          <GameCard
-            key={card.id}
-            card={card}
-            handleSelectCard={handleSelectCard}
-            flipped={
-              firstCard?.id === card.id
-              || secondCard?.id === card.id
-              || card.matched
-            }
-            stopFlip={stopFlip}
-          />
-        ))}
-      </Row>
+      <Container fluid className="pt-5">
+        <Row>
+          {cards.map((card) => (
+            <GameCard
+              key={card.id}
+              card={card}
+              handleSelectCard={handleSelectCard}
+              flipped={
+                firstCard?.id === card.id
+                || secondCard?.id === card.id
+                || card.matched
+              }
+              stopFlip={stopFlip}
+            />
+          ))}
+        </Row>
+      </Container>
     </Container>
   )
 };

@@ -8,12 +8,19 @@ function GameOver({
 }) {
   const { userName } = useContext(UserContext);
   return (
-    <div>
-      <h1>Congratulations {userName}, you win!</h1>
-      <p>Your score is:</p>
+    <>
       <GameCounter />
-      <Button variant="primary" onClick={handleResetGame}>Play again</Button>
-    </div>
+      <div className="game-over-container">
+        <h1>Congratulations {userName}, you win!</h1>
+        <Button
+          className="game-over-container__play-again-button"
+          variant="primary"
+          onClick={handleResetGame}
+        >
+          Play again
+        </Button>
+      </div>
+    </>
   );
 }
 

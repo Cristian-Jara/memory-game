@@ -16,7 +16,7 @@ function GameMenu() {
   const nameInputRef = useRef(null);
   const difficultySelectRef = useRef(null);
 
-  const handleSubmit = (event, value) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const name = nameInputRef.current.value;
     const difficultyValue = difficultySelectRef.current.value;
@@ -27,12 +27,14 @@ function GameMenu() {
 
   return (
     <div className="game-menu">
-      <p>Click on an image to earn points, but don't click on any more than once!</p>
       <Form
         data-testid="game-menu-form"
-        className="mb-3"
+        className="game-menu__form mb-3"
         onSubmit={handleSubmit}
       >
+        <Form.Text className="game-menu__title mb-3">
+          Welcome to the Memory Game!
+        </Form.Text>
         <Form.Text className="text-muted mb-3">
           Name
         </Form.Text>
@@ -43,6 +45,7 @@ function GameMenu() {
           placeholder="Enter your name"
           type="text"
           defaultValue={userName}
+          className="mb-3"
         />
         <Form.Control.Feedback type="invalid">
           Please choose a username.
@@ -62,6 +65,7 @@ function GameMenu() {
             }
         </Form.Select>
         <Button
+          className="game-menu__start-button mt-5"
           type="submit"
         >
           Start Game

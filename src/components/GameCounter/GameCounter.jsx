@@ -6,10 +6,10 @@ function GameCounter() {
   return (
     <div
       data-testid="game-counter"
-      className="game-counter"
+      className="game-counter-container"
     >
-      <p>Correct Attempts: {attempts.correct}</p>
-      <p>Incorrect Attempts: {attempts.incorrect}</p>
+      <p className="game-counter-container__text">Correct Attempts: {attempts.correct}</p>
+      <p className="game-counter-container__text">Incorrect Attempts: {attempts.incorrect}</p>
     </div>
   );
 }
