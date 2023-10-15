@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: memory-game-app
+    image: memory-game-image
+    build:
+      context: .
+    ports:
+      - 8000:80

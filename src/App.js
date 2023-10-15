@@ -6,7 +6,7 @@ import Layout from './components/Layout/Layout';
 import UserContext from './hooks/UserContext';
 
 function App() {
-  const [userName, setUserName] = useState(getStoredUserName() || '');
+  const [userName, setUserName] = useState(getStoredUserName());
   const [started, setStarted] = useState(false);
   const [difficulty, setDifficulty] = useState(0);
 

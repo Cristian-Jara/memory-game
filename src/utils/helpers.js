@@ -6,7 +6,7 @@ export const handleSaveUserName = (userName, setter) => {
 
 export const getStoredUserName = () => {
   const userEncoded = window.localStorage.getItem('user_name');
-  return window.atob(userEncoded);
+  return userEncoded ? window.atob(userEncoded) : '';
 };
 
 export const handleDuplicate = (array) => {

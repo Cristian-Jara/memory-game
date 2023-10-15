@@ -16,3 +16,15 @@ This command will install all the dependencies needed to run the game.
 This command will start the game in development mode.\
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `yarn test`
+
+This command will run the tests for the game.
+
+## How to run the game with docker
+
+To run the game with docker you need to have [Docker](https://www.docker.com/) installed on your computer. If you don't have it, you can download it from [here](https://www.docker.com/) and then install [docker-compose](https://docs.docker.com/compose/install/). After you have installed both, you can run the following commands in the project directory:
+
+### `docker-compose up -d`
+
+This command will build the docker image and start the game for production mode.
