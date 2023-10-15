@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import UserContext from "../hooks/UserContext";
-import Game from "./Game";
-import GameMenu from "./GameMenu";
+import { useContext } from 'react';
+import UserContext from '../hooks/UserContext';
+import Game from './Game';
+import GameMenu from './GameMenu';
 
 function Home() {
   const { started, setStarted } = useContext(UserContext);

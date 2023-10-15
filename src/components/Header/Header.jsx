@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import UserContext from "../../hooks/UserContext";
-import { Button } from "react-bootstrap";
-import { ReactComponent as BrainIcon } from "../../assets/brain.svg";
-import { ReactComponent as UserIcon } from "../../assets/user.svg";
+import { useContext } from 'react';
+import UserContext from '../../hooks/UserContext';
+import { Button } from 'react-bootstrap';
+import { ReactComponent as BrainIcon } from '../../assets/brain.svg';
+import { ReactComponent as UserIcon } from '../../assets/user.svg';
 
 function Header() {
   const { userName, started, setStarted } = useContext(UserContext);
-  
+
   return (
     <header className="header">
       <div className="header__logo-container">

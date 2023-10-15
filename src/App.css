@@ -72,7 +72,7 @@
   justify-content: center;
   width: 20rem;
   border-radius: 0.5rem;
-  border: .5px solid rgba(0, 0, 0, 0.2);
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
   padding: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
@@ -149,7 +149,8 @@
 }
 
 /* Element: game-card-front and game-card-back */
-.game-card-front, .game-card-back {
+.game-card-front,
+.game-card-back {
   width: 100%;
   height: 100%;
   position: absolute;

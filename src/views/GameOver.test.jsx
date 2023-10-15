@@ -1,13 +1,13 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import GameOver from "./GameOver";
-import UserContext from "../hooks/UserContext";
-import GameContext from "../hooks/GameContext";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import GameOver from './GameOver';
+import UserContext from '../hooks/UserContext';
+import GameContext from '../hooks/GameContext';
 
-describe("GameOver Component", () => {
+describe('GameOver Component', () => {
   it("renders the game over message and 'Play again' button", () => {
     const mockUserContext = {
-      userName: "TestUser",
+      userName: 'TestUser',
     };
     const mockHandleResetGame = jest.fn();
     const mockGameContext = {
@@ -25,8 +25,8 @@ describe("GameOver Component", () => {
       </UserContext.Provider>
     );
 
-    const congratsMessage = screen.getByText("Congratulations TestUser, you win!");
-    const playAgainButton = screen.getByText("Play again");
+    const congratsMessage = screen.getByText('Congratulations TestUser, you win!');
+    const playAgainButton = screen.getByText('Play again');
 
     expect(congratsMessage).toBeInTheDocument();
     expect(playAgainButton).toBeInTheDocument();

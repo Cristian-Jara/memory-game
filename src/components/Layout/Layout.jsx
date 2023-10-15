@@ -1,5 +1,5 @@
-import { Container } from "react-bootstrap";
-import Header from "../Header/Header";
+import { Container } from 'react-bootstrap';
+import Header from '../Header/Header';
 
 function Layout({ children }) {
   return (

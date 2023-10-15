@@ -1,10 +1,19 @@
-import { Button, Card, Col } from "react-bootstrap";
+import { Button, Card, Col } from 'react-bootstrap';
 
 function GameCard({ card, handleSelectCard, flipped, stopFlip }) {
   return (
-    <Col xs={12} sm={5} md={4} lg={3} xl={3} xxl={2} className="game-card-container mb-4" data-testid="game-card">
+    <Col
+      xs={12}
+      sm={5}
+      md={4}
+      lg={3}
+      xl={3}
+      xxl={2}
+      className="game-card-container mb-4"
+      data-testid="game-card"
+    >
       <div
-        className={`game-card-inner${flipped ? ' game-card-inner--flipped': ''}`}
+        className={`game-card-inner${flipped ? ' game-card-inner--flipped' : ''}`}
         data-testid="game-card-inner"
       >
         <div className="game-card-front">
@@ -22,12 +31,7 @@ function GameCard({ card, handleSelectCard, flipped, stopFlip }) {
         </div>
         <div className="game-card-back">
           <Card>
-            <Card.Img
-              alt="Card Image"
-              variant="top"
-              src={card.url}
-              className="game-card__img"
-            />
+            <Card.Img alt="Card Image" variant="top" src={card.url} className="game-card__img" />
           </Card>
         </div>
       </div>

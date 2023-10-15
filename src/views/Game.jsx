@@ -1,12 +1,12 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import GameContext from "../hooks/GameContext";
-import { getImages } from "../services/images";
-import { initializeCards } from "../utils/helpers";
-import GameOver from "./GameOver";
-import GameBoard from "./GameBoard";
-import { Container, Spinner } from "react-bootstrap";
-import UserContext from "../hooks/UserContext";
-import { initialAttemps } from "../utils/constants";
+import { useContext, useEffect, useMemo, useState } from 'react';
+import GameContext from '../hooks/GameContext';
+import { getImages } from '../services/images';
+import { cleanImagesData, initializeCards } from '../utils/helpers';
+import GameOver from './GameOver';
+import GameBoard from './GameBoard';
+import { Container, Spinner } from 'react-bootstrap';
+import UserContext from '../hooks/UserContext';
+import { initialAttemps } from '../utils/constants';
 
 function Game() {
   const { difficulty } = useContext(UserContext);
@@ -14,7 +14,7 @@ function Game() {
   const [allCards, setAllCards] = useState([]);
   const [cards, setCards] = useState([]);
   const [peersCount, setPeersCount] = useState(0);
-  const [firstCard, setFirstCard] = useState(null); 
+  const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
   const [stopFlip, setStopFlip] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -23,14 +23,14 @@ function Game() {
   useMemo(() => {
     setLoading(true);
     getImages()
-    .then((response) => {
-      const images = response.data.entries;
-      setAllCards(images);
-      setLoading(false);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        const images = response.data.entries;
+        setAllCards(cleanImagesData(images));
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   useEffect(() => {
@@ -58,15 +58,17 @@ function Game() {
     if (firstCard && secondCard) {
       setStopFlip(true);
       if (firstCard.uuid === secondCard.uuid) {
-        setCards((prev) => prev.map((card) => {
-          if (card.uuid === firstCard.uuid) {
-            return {
-              ...card,
-              matched: true,
-            };
-          }
-          return card;
-        }));
+        setCards((prev) =>
+          prev.map((card) => {
+            if (card.uuid === firstCard.uuid) {
+              return {
+                ...card,
+                matched: true,
+              };
+            }
+            return card;
+          })
+        );
         handleResetSelection(true);
       } else {
         setTimeout(() => {
@@ -85,29 +87,22 @@ function Game() {
     setPeersCount(peers);
   };
 
-  const value = useMemo(() => ({
-    cards,
-    firstCard,
-    setFirstCard,
-    secondCard,
-    setSecondCard,
-    stopFlip,
-    attempts,
-  }), [
-    cards,
-    firstCard,
-    secondCard,
-    stopFlip,
-    attempts,
-  ]);
+  const value = useMemo(
+    () => ({
+      cards,
+      firstCard,
+      setFirstCard,
+      secondCard,
+      setSecondCard,
+      stopFlip,
+      attempts,
+    }),
+    [cards, firstCard, secondCard, stopFlip, attempts]
+  );
 
   return !loading ? (
     <GameContext.Provider value={value}>
-      {!finished ? (
-        <GameBoard />
-        ) : (
-        <GameOver handleResetGame={handleResetGame} />
-      )}
+      {!finished ? <GameBoard /> : <GameOver handleResetGame={handleResetGame} />}
     </GameContext.Provider>
   ) : (
     <Container className="spinner-container">

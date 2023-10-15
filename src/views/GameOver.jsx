@@ -1,11 +1,9 @@
-import { Button } from "react-bootstrap";
-import GameCounter from "../components/GameCounter/GameCounter";
-import { useContext } from "react";
-import UserContext from "../hooks/UserContext";
+import { Button } from 'react-bootstrap';
+import GameCounter from '../components/GameCounter/GameCounter';
+import { useContext } from 'react';
+import UserContext from '../hooks/UserContext';
 
-function GameOver({
-  handleResetGame,
-}) {
+function GameOver({ handleResetGame }) {
   const { userName } = useContext(UserContext);
   return (
     <>

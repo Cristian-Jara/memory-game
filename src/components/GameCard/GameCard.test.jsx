@@ -1,11 +1,11 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import GameCard from "./GameCard";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import GameCard from './GameCard';
 
-describe("GameCard Component", () => {
+describe('GameCard Component', () => {
   const mockCard = {
     id: 1,
-    url: "test-image-url",
+    url: 'test-image-url',
   };
   const mockHandleSelectCard = jest.fn();
 
@@ -19,8 +19,8 @@ describe("GameCard Component", () => {
       />
     );
 
-    const flipButton = screen.getByText("Flip");
-    const cardImage = screen.getByAltText("Card Image");
+    const flipButton = screen.getByText('Flip');
+    const cardImage = screen.getByAltText('Card Image');
 
     expect(flipButton).toBeInTheDocument();
     expect(cardImage).toBeInTheDocument();
@@ -39,12 +39,12 @@ describe("GameCard Component", () => {
       />
     );
 
-    const flipButton = screen.getByText("Flip");
+    const flipButton = screen.getByText('Flip');
 
     expect(flipButton).toBeDisabled();
   });
 
-  it("applies the flipped class when flipped is true", () => {
+  it('applies the flipped class when flipped is true', () => {
     render(
       <GameCard
         card={mockCard}
@@ -54,8 +54,8 @@ describe("GameCard Component", () => {
       />
     );
 
-    const cardInner = screen.getByTestId("game-card-inner");
+    const cardInner = screen.getByTestId('game-card-inner');
 
-    expect(cardInner).toHaveClass("game-card-inner--flipped");
+    expect(cardInner).toHaveClass('game-card-inner--flipped');
   });
 });
